@@ -1,4 +1,3 @@
-
 enum Direction: String {
     case forward
     case up
