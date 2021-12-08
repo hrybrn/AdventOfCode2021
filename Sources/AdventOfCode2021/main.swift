@@ -4,6 +4,7 @@ import AdventOfCode2021Day2
 import AdventOfCode2021Day3
 import AdventOfCode2021Day4
 import AdventOfCode2021Day7
+import AdventOfCode2021Day8
 
 let days = Int(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "-day")! + 1])!
 let part: Part = Int(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "-part")! + 1])! == 1 ? .one : .two
@@ -20,6 +21,8 @@ switch days {
         execute(solution: AdventOfCode2021Day4.Solution())
     case 7:
         execute(solution: AdventOfCode2021Day7.Solution())
+    case 8:
+        execute(solution: AdventOfCode2021Day8.Solution())
     default:
         break
 }
