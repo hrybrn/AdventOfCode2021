@@ -6,12 +6,21 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     public init() {}
 
     public func main(part: Part, exampleOrChallenge: ExampleOrChallenge) {
-        guard let commands = parse(commands: exampleOrChallenge == .example ? Day2.example : Day2.challenge) else {
+        guard let commands = parse(exampleOrChallenge: exampleOrChallenge) else {
             return
         }
         
-        let answer = solve(commands: commands)
+        let answer = solve(part, commands: commands)
         print(answer)
+    }
+
+    private func parse(exampleOrChallenge: ExampleOrChallenge) -> [Command]? {
+        switch exampleOrChallenge {
+        case .example:
+            return parse(commands: Day2.example)
+        case .challenge:
+            return parse(commands: Day2.challenge)
+        }
     }
 
     private func parse(commands: String) -> [Command]? {
@@ -33,7 +42,16 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
         return Command(direction: direction, magnitude: magnitude)
     }
 
-    private func solve(commands: [Command]) -> Int {
+    private func solve(_ part: Part, commands: [Command]) -> Int {
+        switch part {
+        case .one:
+            return solvePart1(commands: commands)
+        case .two:
+            return solvePart2(commands: commands)
+        }
+    }
+
+    private func solvePart1(commands: [Command]) -> Int {
         var horizontalPosition = 0
         var depth = 0
 
@@ -45,6 +63,26 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
                 depth -= command.magnitude
             case .down:
                 depth += command.magnitude
+            }
+        }
+
+        return horizontalPosition * depth
+    }
+
+    private func solvePart2(commands: [Command]) -> Int {
+        var horizontalPosition = 0
+        var depth = 0
+        var aim = 0
+
+        for command in commands {
+            switch command.direction {
+            case .forward:
+                horizontalPosition += command.magnitude
+                depth += aim * command.magnitude
+            case .up:
+                aim -= command.magnitude
+            case .down:
+                aim += command.magnitude
             }
         }
 
