@@ -15,7 +15,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     }
 
     private func parseCrabs(_ input: String) -> [Int]? {
-        return input.split(separator: ",").map { Int($0) }.all()
+        return input.split(separator: ",").map { Int($0) }.unpacked()
     }
 
     private func solvePart1(crabs: [Int]) -> Int {

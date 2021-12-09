@@ -21,7 +21,9 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     public func main(part: Part, exampleOrChallenge: ExampleOrChallenge) {
         let entries = parseEntries(exampleOrChallenge)
     
-        let answer = solve(part, entries: entries)
+        guard let answer = solve(part, entries: entries) else {
+            return
+        }
 
         print(answer)
     }
@@ -63,7 +65,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     }
 
     private func solvePart2(entries: [Entry]) -> Int? {
-        return entries.map(decode(entry:)).all().map { $0.reduce(0, +) }
+        return entries.map(decode(entry:)).unpacked().map { $0.reduce(0, +) }
     }
 
     private func decode(entry: Entry) -> Int? {

@@ -1,6 +1,6 @@
 public extension Array {
 
-    func all<T>() -> [T]? where Element == Optional<T> {
+    func unpacked<T>() -> [T]? where Element == Optional<T> {
         var result: [T] = []
 
         for element in self {
@@ -12,5 +12,15 @@ public extension Array {
         }
 
         return result
+    }
+
+    func transposed<T>() -> Self where Element == [T] {
+        guard let firstRow = self.first else {
+            return []
+        }
+
+        return firstRow.indices.map { index in
+            self.map { $0[index] }
+        }
     }
 }

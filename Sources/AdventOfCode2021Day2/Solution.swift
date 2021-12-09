@@ -26,7 +26,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     private func parse(commands: String) -> [Command]? {
         let lines = commands.split(separator: "\n")
 
-        return lines.map(parse(command:)).all()
+        return lines.map(parse(command:)).unpacked()
     }
 
     private func parse(command: String.SubSequence) -> Command? {

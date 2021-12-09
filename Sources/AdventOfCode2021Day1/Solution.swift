@@ -27,7 +27,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     private func parseReport(_ input: String) -> [Int]? {
         let lines = input.split(separator: "\n")
 
-        return lines.map { Int($0) }.all()
+        return lines.map { Int($0) }.unpacked()
     }
 
     private func solve(_ part: Part, report: [Int]) -> Int {

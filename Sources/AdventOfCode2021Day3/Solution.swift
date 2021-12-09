@@ -18,7 +18,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     }
 
     private func solve(lines: [[BinaryDigit]]) -> Int? {
-        let transposed = transpose(lines: lines)
+        let transposed = lines.transposed()
 
         let gamma = transposed.map(mostCommon)
         let epsilon = gamma.map(\.not)
@@ -34,18 +34,8 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
         return lines.split(separator: "\n").map { line in
             Array(line).map { character in
                 BinaryDigit(rawValue: String(character))
-            }.all()
-        }.all()
-    }
-
-    private func transpose(lines: [[BinaryDigit]]) -> [[BinaryDigit]] {
-        guard let firstRow = lines.first else {
-            return []
-        }
-
-        return firstRow.indices.map { index in
-            lines.map { $0[index] }
-        }
+            }.unpacked()
+        }.unpacked()
     }
 
     private func mostCommon(column: [BinaryDigit]) -> BinaryDigit {

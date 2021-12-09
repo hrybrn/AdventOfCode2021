@@ -27,13 +27,13 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     private func parseDraws(_ input: String.SubSequence) -> [Int]? {
         let numberStrings = input.split(separator: ",")
 
-        return numberStrings.map { Int($0) }.all()
+        return numberStrings.map { Int($0) }.unpacked()
     }
 
     private func parseBoards(_ input: [String.SubSequence]) -> [Board]? {
         let trimmed = input.map(String.init).compactMap(trimRow)
 
-        guard let rows = trimmed.compactMap(parseRow).all() else {
+        guard let rows = trimmed.compactMap(parseRow).unpacked() else {
             return nil
         }
 
@@ -49,7 +49,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     }
 
     private func parseRow(_ input: String) -> [Int]? {
-        return input.split(separator: " ").map { Int($0) }.all()
+        return input.split(separator: " ").map { Int($0) }.unpacked()
     }
 
     private func groupRows(rows: [[Int]]) -> [Board]? {
