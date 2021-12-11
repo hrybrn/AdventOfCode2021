@@ -17,7 +17,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "AdventOfCode2021InputData", dependencies: []),
-        .target(name: "AdventOfCode2021Protocols", dependencies: []),
+        .target(name: "AdventOfCode2021Protocols", dependencies: [.product(name: "Collections", package: "swift-collections")]),
         .executableTarget(
             name: "AdventOfCode2021", 
             dependencies: [
@@ -34,7 +34,7 @@ let package = Package(
         ),
         .target(name: "AdventOfCode2021Day1", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
         .target(name: "AdventOfCode2021Day2", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
-        .target(name: "AdventOfCode2021Day3", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
+        .target(name: "AdventOfCode2021Day3", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols", .product(name: "Collections", package: "swift-collections")]),
         .target(name: "AdventOfCode2021Day4", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
         .target(name: "AdventOfCode2021Day7", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
         .target(name: "AdventOfCode2021Day8", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),

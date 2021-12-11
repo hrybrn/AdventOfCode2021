@@ -13,14 +13,4 @@ public extension Array {
 
         return result
     }
-
-    func transposed<T>() -> Self where Element == [T] {
-        guard let firstRow = self.first else {
-            return []
-        }
-
-        return firstRow.indices.map { index in
-            self.map { $0[index] }
-        }
-    }
 }

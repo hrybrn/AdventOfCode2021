@@ -6,7 +6,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
     public init() {}
 
     public func main(part: Part, exampleOrChallenge: ExampleOrChallenge) {
-        guard let commands = parse(exampleOrChallenge: exampleOrChallenge) else {
+        guard let commands = parseCommands(exampleOrChallenge) else {
             return
         }
         
@@ -14,23 +14,23 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
         print(answer)
     }
 
-    private func parse(exampleOrChallenge: ExampleOrChallenge) -> [Command]? {
+    private func parseCommands(_ exampleOrChallenge: ExampleOrChallenge) -> [Command]? {
         switch exampleOrChallenge {
         case .example:
-            return parse(commands: Day2.example)
+            return parseCommands(Day2.example)
         case .challenge:
-            return parse(commands: Day2.challenge)
+            return parseCommands(Day2.challenge)
         }
     }
 
-    private func parse(commands: String) -> [Command]? {
-        let lines = commands.split(separator: "\n")
+    private func parseCommands(_ input: String) -> [Command]? {
+        let lines = input.split(separator: "\n")
 
-        return lines.map(parse(command:)).unpacked()
+        return lines.map(parseCommand).unpacked()
     }
 
-    private func parse(command: String.SubSequence) -> Command? {
-        let parts = command.split(separator: " ")
+    private func parseCommand(_ input: String.SubSequence) -> Command? {
+        let parts = input.split(separator: " ")
 
         guard
             let direction = Direction(rawValue: String(parts[0])),
