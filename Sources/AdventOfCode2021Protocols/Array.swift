@@ -13,4 +13,14 @@ public extension Array {
 
         return result
     }
+
+    func flatten<T>() -> [T] where Element == [T] {
+        var flattened: [T] = []
+
+        for subArray in self {
+            flattened.append(contentsOf: subArray)
+        }
+
+        return flattened
+    }
 }

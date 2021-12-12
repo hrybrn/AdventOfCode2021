@@ -129,7 +129,7 @@ final public class Solution: AdventOfCode2021Protocols.Solution {
             calculateFlashes(octopi: &octopi, flashed: &flashed)
             clean(octopi: &octopi)
             
-            if flashed.count == octopi.map { $0.count }.reduce(0, +) {
+            if flashed.count == octopi.map({ $0.count }).reduce(0, +) {
                 return round
             }
         }

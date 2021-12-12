@@ -3,6 +3,7 @@ import AdventOfCode2021Day1
 import AdventOfCode2021Day2
 import AdventOfCode2021Day3
 import AdventOfCode2021Day4
+import AdventOfCode2021Day5
 import AdventOfCode2021Day7
 import AdventOfCode2021Day8
 import AdventOfCode2021Day9
@@ -22,6 +23,8 @@ switch days {
         execute(solution: AdventOfCode2021Day3.Solution())
     case 4:
         execute(solution: AdventOfCode2021Day4.Solution())
+    case 5:
+        execute(solution: AdventOfCode2021Day5.Solution())
     case 7:
         execute(solution: AdventOfCode2021Day7.Solution())
     case 8:
