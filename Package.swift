@@ -32,6 +32,7 @@ let package = Package(
                 "AdventOfCode2021Day9",
                 "AdventOfCode2021Day10",
                 "AdventOfCode2021Day11",
+                "AdventOfCode2021Day12",
             ]
         ),
         .target(name: "AdventOfCode2021Day1", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
@@ -44,5 +45,6 @@ let package = Package(
         .target(name: "AdventOfCode2021Day9", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
         .target(name: "AdventOfCode2021Day10", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols", .product(name: "Collections", package: "swift-collections")]),
         .target(name: "AdventOfCode2021Day11", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
+        .target(name: "AdventOfCode2021Day12", dependencies: ["AdventOfCode2021InputData", "AdventOfCode2021Protocols"]),
     ]
 )
